@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import App from './components/common/App.tsx'
 import Menu from './components/common/Menu.tsx'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
@@ -18,9 +18,14 @@ const Main = () => {
 	const [idPlace, setIdPlace] = useState(0)
 	const [ratting, setRating] = useState(0)
 	const [comment, setComment] = useState('Zostaw swój komentarz')
-	const [userName, setUserName] = useState("")
-	setData(dataList)
-	setDataComents(commentsData)
+	const [userName, setUserName] = useState('')
+	useEffect(() => {
+		setData(dataList)
+	}, [data])
+	useEffect(() => {
+		setDataComents(commentsData)
+	}, [dataComents])
+
 	return (
 		<div className="main">
 			<Router>
