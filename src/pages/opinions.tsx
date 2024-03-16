@@ -45,6 +45,8 @@ const Opinions = (props: AppProps) => {
 				adress={datas.adress}
 				url_img={datas.url_img}
 				url_map_google={datas.url_map_google}
+				number_of_ratings={datas.number_of_ratings}
+				rating={datas.rating}
 			/>
 			<h3>Zostaw swoją opinię</h3>
 			<form>
