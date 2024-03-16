@@ -17,7 +17,9 @@ const PlacesView = (props: placesPropsType) => {
 		ratingHTMLNotFill.push(<BiStar className="star" key={index} />)
 	})
 
-	ratigListFill.forEach((e, index) => ratingHTML.push(<FaStar className="star starFile" key={index} />))
+	ratigListFill.forEach((e, index) =>
+		ratingHTML.push(<img src="star_fill.svg" className="star starFile" key={index} />)
+	)
 
 	return (
 		<div className="placeView">
