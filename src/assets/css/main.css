@@ -9,7 +9,7 @@ nav {
   min-width: 50%;
   width: 100%;
   min-height: 10vh;
-  background: #fef6c9;
+  background: #e7c500;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -177,4 +177,9 @@ nav a {
 #userName {
   width: 70%;
   text-align: center;
+}
+
+.star {
+  fill: #e7c500;
+  width: 25px;
 }

@@ -1,6 +1,6 @@
 $main: #23c7d9;
 $akcent1: #f27127;
-$akcent2: #fef6c9;
+$akcent2: #e7c500;
 $akcent3: #086788;
 $colortext: black;
 $backround: #dfdfdf;
@@ -167,4 +167,8 @@ nav a {
 #userName {
 	width: 70%;
 	text-align: center;
+}
+.star {
+	fill: $akcent2;
+	width: 25px;
 }

@@ -4,6 +4,8 @@ type typdata = {
 	adress: string
 	url_img: string
 	url_map_google: string
+	number_of_ratings: number
+	rating: number
 }
 
 const dataList: typdata[] = [
@@ -13,6 +15,8 @@ const dataList: typdata[] = [
 		adress: 'plac Kaszubski 7B, 81-350 Gdynia',
 		url_img: 'https://tiny.pl/dm2c6',
 		url_map_google: 'https://tiny.pl/dm2cv',
+		number_of_ratings: 5,
+		rating: 3
 	},
     {
 		id: 2,
@@ -20,6 +24,8 @@ const dataList: typdata[] = [
 		adress: 'plac Kaszubski 7B, 81-350 Gdynia',
 		url_img: 'https://tiny.pl/dm2c6',
 		url_map_google: 'https://tiny.pl/dm2cv',
+		number_of_ratings: 5,
+		rating: 4
 	},
 ]
 export default dataList
