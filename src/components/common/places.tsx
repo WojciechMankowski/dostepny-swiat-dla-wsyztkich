@@ -2,7 +2,8 @@ import { Link } from 'react-router-dom'
 import placesPropsType from '../../types/places'
 import Img from './Img'
 import { BiStar } from 'react-icons/bi' // gwiazda pusta
-
+import { FaStar } from 'react-icons/fa'
+import { FaS } from 'react-icons/fa6'
 
 const PlacesView = (props: placesPropsType) => {
 	const id = props.id.toString()
@@ -17,9 +18,7 @@ const PlacesView = (props: placesPropsType) => {
 		ratingHTMLNotFill.push(<BiStar className="star" key={index} />)
 	})
 
-	ratigListFill.forEach((_, index) =>
-		ratingHTML.push(<img src="star_fill.svg" className="star starFile" key={index} />)
-	)
+	ratigListFill.forEach((_, index) => ratingHTML.push(<FaStar className="star starFile" key={index} />))
 
 	return (
 		<div className="placeView">
