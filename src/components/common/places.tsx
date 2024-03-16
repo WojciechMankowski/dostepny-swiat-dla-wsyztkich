@@ -3,7 +3,7 @@ import placesPropsType from '../../types/places'
 import Img from './Img'
 import { BiStar } from 'react-icons/bi' // gwiazda pusta
 import { FaStar } from 'react-icons/fa'
-import { FaS } from 'react-icons/fa6'
+
 
 const PlacesView = (props: placesPropsType) => {
 	const id = props.id.toString()
