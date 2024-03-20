@@ -29,10 +29,15 @@ export const get_places = async (): Promise<place[]> => {
 				return { ...element, ...ratingsData }
 			})
 		)
-		
+
 		return placesWithRatings
 	} catch (error) {
 		console.error('Wystąpił błąd przy pobieraniu miejsc:', error)
 		return []
 	}
+}
+
+export const get_comments = () => {
+	const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/api/comments/'
+	
 }
