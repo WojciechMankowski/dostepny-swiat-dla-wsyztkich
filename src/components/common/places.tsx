@@ -22,7 +22,7 @@ const PlacesView = (props: placesPropsType) => {
 
 	return (
 		<div className="placeView">
-			<Img img={props.url_img} alt="zdjęcie" />
+			<Img img={props.url_img} alt={props.name} />
 			<div className="address_data">
 				<h3>{props.name}</h3>
 				{ratingHTML}
