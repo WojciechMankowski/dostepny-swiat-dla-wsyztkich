@@ -1,74 +1,64 @@
 import { useParams } from 'react-router-dom'
-import placesPropsType from '../types/places'
 import { useState, useEffect } from 'react'
 import { Rating } from '@smastrom/react-rating'
 import Place from '../components/features/place'
 import '@smastrom/react-rating/style.css'
+import place from '../types/place'
 
 type AppProps = {
-	data: placesPropsType[]
+	data: place[]
 	idPlace: number
-	ratting: number
 	comment: string
 	setIdPlace: Function
 	setRating: Function
 	setComment: Function
 	userName: string
 	setUserName: Function
+	ratting: number
 }
 
 const Opinions = (props: AppProps) => {
-	const [ratting, setRating] = useState(0)
+	const [localRating, setLocalRating] = useState(props.ratting)
 
 	const params = useParams()
 	const _id = params.id
-	let data = props.data
-	data = data.filter(place => {
-		const id = place.id.toString()
-		return id == _id
-	})
-	const datas = data[0]
+	const data = props.data.find(place => place.id.toString() === _id)
 
 	useEffect(() => {
-		props.setIdPlace(datas.id)
-	}, [])
+		if (data) {
+			props.setIdPlace(data.id)
+		}
+	}, [data, props])
 
 	useEffect(() => {
-		props.setRating(ratting)
-	}, [ratting])
+		props.setRating(localRating)
+	}, [localRating, props.setRating])
+
+	if (!data) return <div>Nie znaleziono miejsca.</div>
+
+	const handleSubmit = (event: React.FormEvent) => {
+		event.preventDefault()
+	}
 
 	return (
 		<div className="opinion">
-			<Place
-				id={datas.id}
-				name={datas.name}
-				adress={datas.adress}
-				url_img={datas.url_img}
-				url_map_google={datas.url_map_google}
-				number_of_ratings={datas.number_of_ratings}
-				rating={datas.rating}
-			/>
+			<Place {...data} rating={data.score} number_of_ratings={data.number_of_ratings} />
 			<h3>Zostaw swoją opinię</h3>
-			<form>
-				<Rating style={{ maxWidth: 250 }} value={props.ratting} onChange={setRating} />
+			<form onSubmit={handleSubmit}>
+				<Rating style={{ maxWidth: 250 }} value={localRating} onChange={setLocalRating} />
 				<label htmlFor="userName">Twoje imię</label>
-
 				<input
 					name="userName"
 					id="userName"
-					onChange={(event: React.FormEvent<HTMLInputElement>) => {
-						props.setUserName(event.currentTarget.value)
-					}}
+					value={props.userName}
+					onChange={event => props.setUserName(event.currentTarget.value)}
 				/>
-				<label htmlFor="comment">Zostaw komentarz jak chceszcz</label>
-
+				<label htmlFor="comment">Zostaw komentarz jak chcesz</label>
 				<input
 					name="comments"
 					id="comments"
-					onChange={(event: React.FormEvent<HTMLInputElement>) => {
-						props.setComment('')
-						props.setComment(event.currentTarget.value)
-					}}
+					value={props.comment}
+					onChange={event => props.setComment(event.currentTarget.value)}
 				/>
 				<input type="submit" value="Dodaj opinię" className="submit" />
 			</form>

@@ -8,23 +8,26 @@ import Disability from './pages/disability'
 import 'bootstrap/dist/css/bootstrap.css'
 import MainHeader from './components/common/Header.tsx'
 import Opinions from './pages/opinions.tsx'
-import dataList from './data/data.ts'
 import commentsData from './data/comments_data.ts'
 import CommentsView from './pages/comments.tsx'
+import { get_places } from './helps/connect_api.ts'
+import place from './types/place.ts'
 
 const Main = () => {
-	const [data, setData] = useState(dataList)
+	const [data, setData] = useState<place[]>([])
 	const [dataComents, setDataComents] = useState(commentsData)
 	const [idPlace, setIdPlace] = useState(0)
-	const [ratting, setRating] = useState(0)
-	const [comment, setComment] = useState('Zostaw swój komentarz')
+	const [rating, setRating] = useState(0)
+	const [comment, setComment] = useState('')
 	const [userName, setUserName] = useState('')
+
 	useEffect(() => {
-		setData(dataList)
-	}, [data])
-	useEffect(() => {
-		setDataComents(commentsData)
-	}, [dataComents])
+		const fetchData = async () => {
+			const dataAPI = await get_places()
+			setData(dataAPI)
+		}
+		fetchData()
+	}, [])
 
 	return (
 		<div className="main">
@@ -43,7 +46,7 @@ const Main = () => {
 								data={data}
 								idPlace={idPlace}
 								setIdPlace={setIdPlace}
-								ratting={ratting}
+								ratting={rating}
 								setRating={setRating}
 								comment={comment}
 								setComment={setComment}
