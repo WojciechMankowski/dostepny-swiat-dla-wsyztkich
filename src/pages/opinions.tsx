@@ -39,10 +39,13 @@ const Opinions = (props: AppProps) => {
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault()
 	}
-
+	console.table(data)
 	return (
 		<div className="opinion">
-			<Place {...data} rating={data.score} number_of_ratings={data.number_of_ratings} />
+			<Place 
+			name={data.name} adress={data.adress} url_img={data.url_imge} 
+			url_map_google={data.url_map_google} id={data.id}
+			rating={data.score} number_of_ratings={data.number_of_ratings} />
 			<h3>Zostaw swoją opinię</h3>
 			<form onSubmit={handleSubmit}>
 				<Rating style={{ maxWidth: 250 }} value={localRating} onChange={setLocalRating} />
