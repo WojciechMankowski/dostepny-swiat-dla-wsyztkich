@@ -1,6 +1,9 @@
 import axios from 'axios'
 import place from '../types/place'
-import { comments } from '../types/place'
+import CommentsType from '../types/compoments'
+
+
+
 type rating = {
 	id: number
 	score: number
@@ -18,7 +21,7 @@ export const get_rating = async (url: string): Promise<rating[]> => {
 }
 
 export const get_places = async (): Promise<place[]> => {
-	const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/api/places/'
+	const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/places/'
 	try {
 		const response = await axios.get<place[]>(url)
 		const placesData = response.data
@@ -37,16 +40,16 @@ export const get_places = async (): Promise<place[]> => {
 	}
 }
 
-export const get_comments = async (): Promise<comments[]> => {
-	const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/api/comments/'
+export const get_comments = async (): Promise<CommentsType[]> => {
+	const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/comments/'
 	try {
-		const response = await axios.get<comments[]>(url)
+		const response = await axios.get<CommentsType[]>(url)
 		const commentsData = response.data
 		const data = [...commentsData]
 		return data
 	} catch (error) {
 		console.error('Wystąpił błąd podczas pobierania komentarzy:', error)
 		// Możesz zdecydować, czy zwracać pustą tablicę, czy propagować błąd dalej
-		throw error // lub return [];
+		return [];
 	}
 }

@@ -13,15 +13,17 @@ const PlacesView = (props: place) => {
 	const ratigListFill = Array(props.score).fill('test')
 	const ratingHTMLNotFill: JSX.Element[] = []
 	const ratingHTML: JSX.Element[] = []
+
 	ratigList.forEach((_, index) => {
 		ratingHTMLNotFill.push(<BiStar className="star" key={index} />)
 	})
 
-	ratigListFill.forEach((_, index) => ratingHTML.push(<FaStar className="star starFile" key={index} />))
-
+	ratigListFill.forEach((_, index) => ratingHTML.push(<FaStar className="star starFile"
+	 key={index} />))
 	return (
+		
 		<div className="placeView">
-			<Img img={props.url_img} alt={props.name} />
+			<Img img={props.url_imge} alt={props.name} />
 			<div className="address_data">
 				<h3>{props.name}</h3>
 				{ratingHTML}

@@ -4,7 +4,7 @@ type place = {
 	adress: string
 	url_imge: string
 	url_map_google: string
-	ratings: string | null
+	ratings: string 
 	score: number
 	number_of_ratings: number
 }

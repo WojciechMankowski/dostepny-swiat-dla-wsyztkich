@@ -12,11 +12,11 @@ const App = (props: AppProps) => {
 				id={place.id}
 				name={place.name}
 				adress={place.adress}
-				url_img={place.url_imge}
+				url_imge={place.url_imge}
 				url_map_google={place.url_map_google}
 				score={place.score}
 				number_of_ratings={place.number_of_ratings}
-				ratings={null}
+				ratings={place.ratings}
 			/>
 		)
 	})
