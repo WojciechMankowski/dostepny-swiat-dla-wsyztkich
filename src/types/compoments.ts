@@ -1,10 +1,9 @@
-
 type CommentsType = {
-    id: number
-	name_user: string
-	comments: string
-	id_place: number
+	id: number
+	user_name: string
+	content: string
 	date: Date
+	place_id: number
 }
 
 export default CommentsType

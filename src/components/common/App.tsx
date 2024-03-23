@@ -1,8 +1,7 @@
 import '../../assets/css/main.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import PlacesView from './places'
-import place from '../../types/place'
-type AppProps = { data: place[] }
+import { AppProps } from '../../types/Props'
 
 const App = (props: AppProps) => {
 	const dataList = props.data
@@ -15,8 +14,9 @@ const App = (props: AppProps) => {
 				adress={place.adress}
 				url_img={place.url_imge}
 				url_map_google={place.url_map_google}
-				rating={place.score}
+				score={place.score}
 				number_of_ratings={place.number_of_ratings}
+				ratings={null}
 			/>
 		)
 	})

@@ -1,17 +1,16 @@
 import { Link } from 'react-router-dom'
-import placesPropsType from '../../types/places'
 import Img from './Img'
 import { BiStar } from 'react-icons/bi' // gwiazda pusta
-import { FaStar } from 'react-icons/fa'
+import { FaStar } from 'react-icons/fa' // gwiazda pełna
+import place from '../../types/place'
 
-
-const PlacesView = (props: placesPropsType) => {
+const PlacesView = (props: place) => {
 	const id = props.id.toString()
 	const url = '/opinia/' + id
 	const url_comment = '/komentarze/' + id
-	const rating = 5 - props.rating
+	const rating = 5 - props.score
 	const ratigList = Array(rating).fill('test')
-	const ratigListFill = Array(props.rating).fill('test')
+	const ratigListFill = Array(props.score).fill('test')
 	const ratingHTMLNotFill: JSX.Element[] = []
 	const ratingHTML: JSX.Element[] = []
 	ratigList.forEach((_, index) => {

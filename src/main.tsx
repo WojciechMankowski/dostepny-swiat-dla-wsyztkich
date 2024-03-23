@@ -8,14 +8,14 @@ import Disability from './pages/disability'
 import 'bootstrap/dist/css/bootstrap.css'
 import MainHeader from './components/common/Header.tsx'
 import Opinions from './pages/opinions.tsx'
-import commentsData from './data/comments_data.ts'
 import CommentsView from './pages/comments.tsx'
-import { get_places } from './helps/connect_api.ts'
+import { get_places, get_comments } from './helps/connect_api.ts'
 import place from './types/place.ts'
+import CommentsType from './types/compoments.ts'
 
 const Main = () => {
 	const [data, setData] = useState<place[]>([])
-	const [dataComents, setDataComents] = useState(commentsData)
+	const [dataComents, setDataComents] = useState<CommentsType[]>([])
 	const [idPlace, setIdPlace] = useState(0)
 	const [rating, setRating] = useState(0)
 	const [comment, setComment] = useState('')
@@ -28,7 +28,13 @@ const Main = () => {
 		}
 		fetchData()
 	}, [])
-
+	useEffect(() => {
+		const fetchData = async () => {
+			const dataAPI = await get_comments()
+			setDataComents(dataAPI)
+		}
+		fetchData()
+	}, [])
 	return (
 		<div className="main">
 			<Router>
