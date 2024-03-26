@@ -14,9 +14,11 @@ const App = (props: AppProps) => {
 				adress={place.adress}
 				url_imge={place.url_imge}
 				url_map_google={place.url_map_google}
-				score={place.score}
-				number_of_ratings={place.number_of_ratings}
+				type_place={place.type_place}
+				type_plece_text={place.type_plece_text}
 				ratings={place.ratings}
+				url=''
+
 			/>
 		)
 	})

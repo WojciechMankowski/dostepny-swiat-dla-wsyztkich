@@ -8,16 +8,15 @@ const PlacesView = (props: place) => {
 	const id = props.id.toString()
 	const url = '/opinia/' + id
 	const url_comment = '/komentarze/' + id
-	const rating = 5 - props.score
+	const rating = 5 - Math.floor(props.ratings[0].score)
 	const ratigList = Array(rating).fill('test')
-	const ratigListFill = Array(props.score).fill('test')
+	const ratigListFill = Array(Math.floor(props.ratings[0].score)).fill('test')
 	const ratingHTMLNotFill: JSX.Element[] = []
 	const ratingHTML: JSX.Element[] = []
 
 	ratigList.forEach((_, index) => {
 		ratingHTMLNotFill.push(<BiStar className="star" key={index} />)
 	})
-
 	ratigListFill.forEach((_, index) => ratingHTML.push(<FaStar className="star starFile"
 	 key={index} />))
 	return (
@@ -28,7 +27,9 @@ const PlacesView = (props: place) => {
 				<h3>{props.name}</h3>
 				{ratingHTML}
 				{ratingHTMLNotFill}
-				<span> Liczba ocen: {props.number_of_ratings}</span>
+				<span >Ocena: {props.ratings[0].score} </span>
+				<span> Liczba ocen: {props.ratings[0].number_of_ratings}</span>
+				<p>Typ miejsca: {props.type_plece_text}</p>
 				<p>{props.adress}</p>
 				<a href={props.url_map_google} target="blank">
 					Adres do mapy Google
