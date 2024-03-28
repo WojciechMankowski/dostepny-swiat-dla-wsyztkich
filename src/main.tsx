@@ -13,6 +13,7 @@ import { get_places, get_comments } from './helps/connect_api.ts'
 import place from './types/place.ts'
 import CommentsType from './types/compoments.ts'
 
+
 const Main = () => {
 	const [data, setData] = useState<place[]>([])
 	const [dataComents, setDataComents] = useState<CommentsType[]>([])
@@ -42,6 +43,7 @@ const Main = () => {
 				<Menu />
 				<Routes>
 					<Route path="/" element={<App data={data} />} />
+					
 					<Route path="/new" element={<AddNewPlace />} />
 					<Route path="/ruchowa" element={<Disability />} />
 					<Route path="/intelektualna" element={<Disability />} />
