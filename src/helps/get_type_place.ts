@@ -6,7 +6,6 @@ const getTypePlace = (key: number) => {
         4: 'Muzeum', 
         5:  "Miejsce związane z kulturą"
     }
-    console.log(key)
     return type_place[key] ?? "Nie znaleziono wartości";
 }
 

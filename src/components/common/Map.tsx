@@ -1,54 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import { APIProvider, Map, InfoWindow, AdvancedMarker } from '@vis.gl/react-google-maps'
-import fetchCoordinates from '../../helps/get_corordinates'
+import { useEffect, useState } from 'react';
+import { APIProvider, Map as GoogleMap } from '@vis.gl/react-google-maps';
+import fetchCoordinates from '../../helps/get_corordinates';
+import { PropsMap } from '../../types/Props';
+import Coordinates from '../../types/Coordinates';
+import Marker from './Maps/Marker'; // Ensure you have a Marker component that accepts the correct props
 
-interface MapsProps {
-	addresses: string[]
-}
+const CustomMap = ({ data }: PropsMap) => {
+  // Update state to hold an array of markers
+  const [markers, setMarkers] = useState<{ lat: number; lng: number; key: number }[]>([]);
 
-interface Coor {
-	lat: number
-	lng: number
-}
+  useEffect(() => {
+    const getCoordinates = async () => {
+      const promises = data.map(async (place) => {
+        const coor: Coordinates = await fetchCoordinates(place.address);
+        return { lat: coor.lat, lng: coor.lng, key: Number(place.id) };
+      });
+      const coordinates = await Promise.all(promises);
+      setMarkers(coordinates);
+    };
 
-const Maps: React.FC<MapsProps> = ({ addresses }) => {
-	const [markers, setMarkers] = useState<Coor[]>([])
-	const [selectedMarker, setSelectedMarker] = useState<Coor | null>(null)
+    getCoordinates();
+  }, [data]);
+  const markerComponents = markers.map((marker) => 
+   { 
+    return <Marker data={data[marker.key -1 ]} position={marker} />}
+  );
 
-	useEffect(() => {
-		const getCoordinates = async () => {
-			const coordinates: Coor[] = await fetchCoordinates(addresses)
-			setMarkers(coordinates)
-		}
+  const defaultCenter = { lat: 54.40874700266651, lng: 18.569118915962616 };
+  return (
+    <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
+      <div className="map">
+        <GoogleMap
+          zoom={10}
+          center={defaultCenter}
+          defaultZoom={12}
+          mapId="Your custom MapId here"
+          gestureHandling="greedy"
+        >
+          {markerComponents}
+        </GoogleMap>
+      </div>
+    </APIProvider>
+  );
+};
 
-		getCoordinates()
-	}, [addresses])
-
-	const handleMarkerClick = (marker: Coor) => {
-		setSelectedMarker(marker)
-	}
-	const mark = markers.map((marker, index) => (
-		<AdvancedMarker
-			key={index}
-			position={{ lat: marker.lat, lng: marker.lng }}
-			//   onClick={() => handleMarkerClick(marker)}
-		></AdvancedMarker>
-	))
-	return (
-		<APIProvider apiKey="AIzaSyBYDgXMcNfyI1pMmz7dN0228-yGIL9lp8c">
-			<div className="map">
-				<Map zoom={12} center={{ lat: 54.35, lng: 18.6333 }} mapId={'<Your custom MapId here>'}>
-					<AdvancedMarker
-						// className={customMarker}
-						position={{ lat: 53.54992, lng: 10.00678 }}>
-						<h2>I am so customized</h2>
-						<p>That is pretty awesome!</p>
-					</AdvancedMarker>
-					{mark}
-				</Map>
-			</div>
-		</APIProvider>
-	)
-}
-
-export default Maps
+export default CustomMap;

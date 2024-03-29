@@ -23,7 +23,7 @@ const App = (props: AppProps) => {
 	})
 	return (
 		<main className="main-content">
-			<Maps addresses={['ul. Majkowskiego 7 Gdańsk', 'Niepodległości 829, Sopot, Poland']} />
+			<Maps data={props.data} />
 			<section>{data}</section>
 		</main>
 	)

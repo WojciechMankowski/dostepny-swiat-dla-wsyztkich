@@ -13,3 +13,7 @@ export type OpinionsProps = {
 	setUserName: Function
 	ratting: number
 }
+
+export type PropsMap = {
+	data: place[]
+  }
