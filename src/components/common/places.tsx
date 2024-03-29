@@ -30,7 +30,7 @@ const PlacesView = (props: place) => {
 				<span >Ocena: {props.ratings[0].score} </span>
 				<span> Liczba ocen: {props.ratings[0].number_of_ratings}</span>
 				<p>Typ miejsca: {props.type_plece_text}</p>
-				<p>{props.adress}</p>
+				<p>{props.address}</p>
 				<a href={props.url_map_google} target="blank">
 					Adres do mapy Google
 				</a>
