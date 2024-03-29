@@ -7,7 +7,7 @@ const Place = (props: placesPropsType) => {
 
 			<div className="address_data">
 				<h3>{props.name}</h3>
-				<p>{props.adress}</p>
+				<p>{props.address}</p>
 				<a href={props.url_map_google} target="blank">
 					Adres do mapy Google
 				</a>
