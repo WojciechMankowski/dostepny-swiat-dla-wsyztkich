@@ -11,7 +11,7 @@ const App = (props: AppProps) => {
 				key={place.id}
 				id={place.id}
 				name={place.name}
-				adress={place.adress}
+				address={place.address}
 				url_imge={place.url_imge}
 				url_map_google={place.url_map_google}
 				type_place={place.type_place}
