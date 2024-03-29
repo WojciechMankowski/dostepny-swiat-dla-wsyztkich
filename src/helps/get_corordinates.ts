@@ -3,6 +3,7 @@ import Coordinates from "../types/Coordinates";
 
 
 const fetchCoordinates = async (addresses: string): Promise<Coordinates> => {
+    console.log("łączenie się z api " + import.meta.env.VITE_API_KEY)
     setKey(import.meta.env.VITE_API_KEY);
     setLanguage("pl");
     setRegion("pl");
