@@ -1,13 +1,14 @@
-import { useEffect, useState } from 'react';
-import { APIProvider, Map as GoogleMap } from '@vis.gl/react-google-maps';
-import fetchCoordinates from '../../helps/get_corordinates';
-import { PropsMap } from '../../types/Props';
-import Coordinates from '../../types/Coordinates';
-import Marker from './Maps/Marker'; // Ensure you have a Marker component that accepts the correct props
+import { useEffect, useState } from "react";
+import { APIProvider, Map as GoogleMap } from "@vis.gl/react-google-maps";
+import fetchCoordinates from "../../helps/get_corordinates";
+import { PropsMap } from "../../types/Props";
+import Coordinates from "../../types/Coordinates";
+import Marker from "./Maps/Marker";
 
 const CustomMap = ({ data }: PropsMap) => {
-  // Update state to hold an array of markers
-  const [markers, setMarkers] = useState<{ lat: number; lng: number; key: number }[]>([]);
+  const [markers, setMarkers] = useState<
+    { lat: number; lng: number; key: number }[]
+  >([]);
 
   useEffect(() => {
     const getCoordinates = async () => {
@@ -21,13 +22,12 @@ const CustomMap = ({ data }: PropsMap) => {
 
     getCoordinates();
   }, [data]);
-  const markerComponents = markers.map((marker) => 
-   { 
-    return <Marker data={data[marker.key -1 ]} position={marker} />}
-  );
+  const markerComponents = markers.map((marker) => {
+    return <Marker data={data[marker.key - 1]} position={marker} />;
+  });
 
   const defaultCenter = { lat: 54.40874700266651, lng: 18.569118915962616 };
-  console.log(import.meta)
+  console.log(import.meta.env);
   return (
     <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
       <div className="map">
