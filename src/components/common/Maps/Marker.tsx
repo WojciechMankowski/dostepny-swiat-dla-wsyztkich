@@ -7,8 +7,10 @@ import {
 import MarkerType from "../../../types/MarkerType";
 
 const Marker = ({ data, position }: MarkerType) => {
-  const [infowindowOpen, setInfowindowOpen] = useState(true);
+  const [infowindowOpen, setInfowindowOpen] = useState(false);
   const [markerRef, marker] = useAdvancedMarkerRef();
+  // console.dir(data)
+  // console.log(position)
   return (
     <>
       <AdvancedMarker

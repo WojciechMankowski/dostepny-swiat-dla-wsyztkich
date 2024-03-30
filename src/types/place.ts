@@ -2,7 +2,7 @@ type place = {
 	id: number | string
 	name: string
 	address: string
-	url_imge: string
+	url_image: string
 	url_map_google: string
 	ratings: [
 		{

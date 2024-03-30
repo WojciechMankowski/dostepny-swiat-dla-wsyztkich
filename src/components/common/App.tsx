@@ -12,7 +12,7 @@ const App = (props: AppProps) => {
 				id={place.id}
 				name={place.name}
 				address={place.address}
-				url_imge={place.url_imge}
+				url_image={place.url_image}
 				url_map_google={place.url_map_google}
 				type_place={place.type_place}
 				type_plece_text={place.type_plece_text}

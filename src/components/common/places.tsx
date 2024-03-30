@@ -19,10 +19,11 @@ const PlacesView = (props: place) => {
 	})
 	ratigListFill.forEach((_, index) => ratingHTML.push(<FaStar className="star starFile"
 	 key={index} />))
+	//  console.log(props)
 	return (
 		
 		<div className="placeView">
-			<Img img={props.url_imge} alt={props.name} />
+			<Img img={props.url_image} alt={props.name} />
 			<div className="address_data">
 				<h3>{props.name}</h3>
 				{ratingHTML}

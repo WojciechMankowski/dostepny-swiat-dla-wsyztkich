@@ -21,14 +21,16 @@ export const get_rating = async (url: string): Promise<rating[]> => {
 }
 
 export const get_places = async (): Promise<place[]> => {
-	const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/places/'
-	// const url = 'http://127.0.0.1:8000/api/places/'
+	// const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/places/'
+	const url = 'http://127.0.0.1:8000/api/places/'
 	try {
 		const response = await axios.get<place[]>(url)
 		const placesData = response.data
 		const placesWithRatings = await Promise.all(
 			placesData.map(async element => {
 				const type = getTypePlace(element.type_place)
+				console.log(element)
+				console.log(element.url_image)
 				const id = element.url.slice(-2, -1)
 				return {... element, id: id, type_plece_text: type}
 			})

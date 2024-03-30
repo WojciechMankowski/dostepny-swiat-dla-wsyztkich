@@ -53,7 +53,7 @@ const Opinions = (props: AppProps) => {
 		id={data.id}
 		name= {data.name} 
 		address= {data.address} 
-		url_img= {data.url_imge} 
+		url_img= {data.url_image} 
 		url_map_google= {data.url_map_google} 
 		number_of_ratings= {ratings?.number_of_ratings} 
 		rating= {ratings?.score} 

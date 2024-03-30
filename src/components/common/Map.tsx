@@ -22,21 +22,23 @@ const CustomMap = ({ data }: PropsMap) => {
 
     getCoordinates();
   }, [data]);
-  const markerComponents = markers.map((marker) => {
-    return <Marker data={data[marker.key - 1]} position={marker} />;
+
+  const markerComponents = markers.map((marker, index) => {
+    return <Marker data={data[index]} position={marker} />;
   });
 
-  const defaultCenter = { lat: 54.40874700266651, lng: 18.569118915962616 };
+  const defaultCenter = { lat: 54.44382540483505, lng: 18.559246442328536 };
 
   return (
     <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
       <div className="map">
         <GoogleMap
-          zoom={10}
-          center={defaultCenter}
           defaultZoom={12}
-          mapId="Your custom MapId here"
+          defaultCenter={defaultCenter}
+          // defaultZoom={12}
+          mapId={"bf51a910020fa25a"}
           gestureHandling="greedy"
+          // disableDefaultUI
         >
           {markerComponents}
         </GoogleMap>
