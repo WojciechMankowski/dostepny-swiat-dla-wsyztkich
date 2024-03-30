@@ -4,7 +4,8 @@ const getTypePlace = (key: number) => {
         2:'Pub',
         3: 'Restauracja',
         4: 'Muzeum', 
-        5:  "Miejsce związane z kulturą"
+        5:  "Miejsce związane z kulturą", 
+        6: "Kawiarnia"
     }
     return type_place[key] ?? "Nie znaleziono wartości";
 }

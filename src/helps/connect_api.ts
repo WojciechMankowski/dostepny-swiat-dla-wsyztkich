@@ -21,8 +21,8 @@ export const get_rating = async (url: string): Promise<rating[]> => {
 }
 
 export const get_places = async (): Promise<place[]> => {
-	// const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/places/'
-	const url = 'http://127.0.0.1:8000/api/places/'
+	const url = 'https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/places/'
+	// const url = 'http://127.0.0.1:8000/api/places/'
 	try {
 		const response = await axios.get<place[]>(url)
 		const placesData = response.data
