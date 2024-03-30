@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import PlacesView from './places'
 import { AppProps } from '../../types/Props'
 import Maps from './Map'
+
 const App = (props: AppProps) => {
 	const dataList = props.data
 	const data = dataList.map(place => {

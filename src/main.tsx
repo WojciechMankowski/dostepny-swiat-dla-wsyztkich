@@ -12,7 +12,7 @@ import CommentsView from './pages/comments.tsx'
 import { get_places, get_comments } from './helps/connect_api.ts'
 import place from './types/place.ts'
 import CommentsType from './types/compoments.ts'
-
+import './assets/css/main.css'
 
 const Main = () => {
 	const [data, setData] = useState<place[]>([])

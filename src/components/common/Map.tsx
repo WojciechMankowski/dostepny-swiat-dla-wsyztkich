@@ -33,7 +33,7 @@ const CustomMap = ({ data }: PropsMap) => {
     <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
       <div className="map">
         <GoogleMap
-          defaultZoom={12}
+          defaultZoom={15}
           defaultCenter={defaultCenter}
           // defaultZoom={12}
           mapId={"bf51a910020fa25a"}

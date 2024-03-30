@@ -25,7 +25,7 @@ const PlacesView = (props: place) => {
 		<div className="placeView">
 			<Img img={props.url_image} alt={props.name} />
 			<div className="address_data">
-				<h3>{props.name}</h3>
+				<p className='name_place'>{props.name}</p>
 				{ratingHTML}
 				{ratingHTMLNotFill}
 				<span >Ocena: {props.ratings[0].score} </span>

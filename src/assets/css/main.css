@@ -183,10 +183,20 @@ nav a {
   fill: #e7c500;
   width: 25px;
 }
+.name_place{
+	font-size: 20px;
+	font-weight: 00;
 
+}
 .map {
   width: 50%;
   height: 400px;
   margin: auto;
   padding: 10px 15px;
+}
+@media (min-widch: 1200px){
+
+  nav>ul>li{
+    padding: 0;
+  }
 }
