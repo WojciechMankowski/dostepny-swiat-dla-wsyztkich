@@ -3,6 +3,7 @@ import place from '../types/place'
 import CommentsType from '../types/compoments'
 import getTypePlace from './get_type_place'
 
+// import.meta.env.VITE_API_KEY
 
 type rating = {
 	id: number
@@ -22,11 +23,14 @@ export const get_rating = async (url: string): Promise<rating[]> => {
 
 export const get_places = async (): Promise<place[]> => {
 	const currentURL = window.location.hostname
+	console.log(import.meta.env.VITE_LOCALE)
+	console.log(import.meta.env.VITE_PRODUK)
+	console.log(`${import.meta.env.VITE_LOCALE}place/`)
 	let url
 	if (currentURL === "localhost"){
-		url = 'http://127.0.0.1:8000/api/places/'
+		url = `${import.meta.env.VITE_LOCALE}places/`
 	}else{
-		url='https://dostepnyswiatdlawszystkich.pythonanywhere.com/api/places/'
+		url= `${import.meta.env.VITE_LOCALE}places/`
 	}
 	try {
 		const response = await axios.get<place[]>(url)

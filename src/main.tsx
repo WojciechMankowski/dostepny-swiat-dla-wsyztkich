@@ -14,6 +14,7 @@ import place from './types/place.ts'
 import CommentsType from './types/compoments.ts'
 import './assets/css/main.css'
 
+
 const Main = () => {
 	const [data, setData] = useState<place[]>([])
 	const [dataComents, setDataComents] = useState<CommentsType[]>([])
@@ -21,6 +22,7 @@ const Main = () => {
 	const [rating, setRating] = useState(0)
 	const [comment, setComment] = useState('')
 	const [userName, setUserName] = useState('')
+	
 
 	useEffect(() => {
 		const fetchData = async () => {
