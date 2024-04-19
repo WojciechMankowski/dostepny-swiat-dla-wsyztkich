@@ -23,15 +23,13 @@ export const get_rating = async (url: string): Promise<rating[]> => {
 
 export const get_places = async (): Promise<place[]> => {
 	const currentURL = window.location.hostname
-	console.log(import.meta.env.VITE_LOCALE)
-	console.log(import.meta.env.VITE_PRODUK)
-	console.log(`${import.meta.env.VITE_LOCALE}place/`)
 	let url
 	if (currentURL === "localhost"){
 		url = `${import.meta.env.VITE_LOCALE}places/`
 	}else{
 		url= `${import.meta.env.VITE_LOCALE}places/`
 	}
+	console.log(url)
 	try {
 		const response = await axios.get<place[]>(url)
 		const placesData = response.data
