@@ -25,11 +25,10 @@ export const get_places = async (): Promise<place[]> => {
 	const currentURL = window.location.hostname
 	let url
 	console.log(currentURL == "localhost")
-	if (currentURL != "localhost"){
-		url= `${import.meta.env.VITE_LOCALE}places/`
-	}else{
-		
+	if (currentURL == "localhost"){
 		url = `${import.meta.env.VITE_LOCALE}places/`
+	}else{
+		url= `${import.meta.env.VITE_PRODUK}places/`
 	}
 	console.log(url)
 	try {
