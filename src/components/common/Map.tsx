@@ -38,6 +38,7 @@ const CustomMap = ({ data }: PropsMap) => {
           // defaultZoom={12}
           mapId={"bf51a910020fa25a"}
           gestureHandling="greedy"
+          key={defaultCenter.lat}
           // disableDefaultUI
         >
           {markerComponents}
