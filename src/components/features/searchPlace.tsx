@@ -21,7 +21,7 @@ const SearchPlaces: React.FC<SearchPlacesProps> = ({
         (place) =>
           place.name.toLowerCase().includes(term) ||
           place.address.toLowerCase().includes(term) ||
-          place.type_plece_text.toLowerCase().includes(term) // Assuming the correct property name
+          place.type_plece_text.toLowerCase().includes(term)
       );
       onSearchResult(filteredData);
     } else {
@@ -34,7 +34,7 @@ const SearchPlaces: React.FC<SearchPlacesProps> = ({
     <div className="search-container">
       <input
         type="text"
-        placeholder="Search for places..."
+        placeholder="Szukaj miejsc..."
         value={searchTerm}
         onChange={handleSearch}
         className="search-input"

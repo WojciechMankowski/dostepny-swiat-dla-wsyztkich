@@ -35,8 +35,10 @@ const App: React.FC<AppProps> = ({ data }) => {
 
   return (
     <main className="main-content">
-      <SearchPlaces data={filteredData} onSearchResult={handleSearchResult} />
+     <section>
+     <SearchPlaces data={filteredData} onSearchResult={handleSearchResult} />
       <Maps data={filteredData} />
+     </section>
       <section>{dataComponents}</section>
     </main>
   );
