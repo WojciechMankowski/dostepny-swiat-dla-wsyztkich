@@ -27,7 +27,9 @@ const CustomMap = ({ data }: PropsMap) => {
     return <Marker data={data[index]} position={marker} />;
   });
 
-  const defaultCenter = { lat: 54.44382540483505, lng: 18.559246442328536 };
+  // const defaultCenter = { lat: 54.44382540483505, lng: 18.559246442328536 };
+  const defaultCenter = markers[0] != undefined ? markers[0]: { lat: 54.44382540483505, lng: 18.559246442328536 }
+  console.log(defaultCenter)
 
   return (
     <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
@@ -35,11 +37,9 @@ const CustomMap = ({ data }: PropsMap) => {
         <GoogleMap
           defaultZoom={15}
           defaultCenter={defaultCenter}
-          // defaultZoom={12}
           mapId={"bf51a910020fa25a"}
           gestureHandling="greedy"
           key={defaultCenter.lat}
-          // disableDefaultUI
         >
           {markerComponents}
         </GoogleMap>
