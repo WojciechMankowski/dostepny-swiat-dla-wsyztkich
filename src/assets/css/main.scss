@@ -1,4 +1,4 @@
-// Definicje zmiennych
+// ustawienie zmiennych - kolory
 $main: #23c7d9;
 $akcent1: #f27127;
 $akcent2: #e7c500;
@@ -6,39 +6,62 @@ $akcent3: #086788;
 $colortext: black;
 $background: #dfdfdf;
 
+// reset ustawień
 * {
-  padding: 0;
   margin: 0;
-  font-size: 20px;
-  color: $colortext;
-  box-sizing: border-box; // Dla lepszego zarządzania rozmiarami boxów
+  padding: 0;
+  box-sizing: border-box;
+  // font-size: 20px;
+  color: black;
+}
+html {
+  font-size: 10px;
+  overflow-x: hidden;
+}
+//  stylowanie menu
+
+ul {
+  list-style: none;
 }
 
-nav {
-  min-width: 50%;
-  width: 100%;
-  min-height: 10vh;
-  background: $akcent2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-nav ul > li {
-  padding-left: 20px;
-}
-
-nav a {
+a {
   text-decoration: none;
-  color: $colortext;
-  font-weight: 600;
+  color: black;
+  font-size: 18px;
 }
+
+/* navbar */
+.nav {
+  background-color: $akcent2;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  min-height: 70px;
+}
+
+/* logo  */
+.logo {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ul  */
+.navMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+}
+// ustawienie nagłówka z logo
 
 .site-header {
-  background-color: $main;
+  background-color: #23c7d9;
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -56,68 +79,262 @@ nav a {
   margin-bottom: 5px;
 }
 
-.site-header span, .logo_text, .name_place {
+.site-header span {
   color: white;
 }
 
-.main-content section, .placeView, .opinion, .comments, .place, .map {
-  padding: 10px 15px;
+// ustawienie głównego diva
+
+.main-content section {
+  min-width: 50%;
+  width: 80%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  padding: 10px 15px 5px;
 }
 
-.place img {
-  width: 20%;
-  height: auto; // Zmiana dla lepszego skalowania obrazów
+// ustawienie listy miejsc
+
+.placeView {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  padding: 10px 15px;
 }
 
-.placeView a, .place a {
+.placeView a,
+.place a {
   text-decoration: none;
   padding: 10px 15px;
-  color: $colortext;
+  color: black;
 }
 
+// ustawienia dla pojedyńczego miejsca
+.place {
+  width: 80%;
+  padding: 10px 15px;
+  margin: 5px 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.placeImg {
+  width: 20%;
+}
+
+.address_data {
+  padding: 5px 20px;
+}
 .name_place {
-  font-size: 18px;
-  font-weight: 900;
+  font-size: 2rem;
+  font-weight: 600;
+}
+// style dla wyświetlania gwiazdek
+.star {
+  fill: #e7c500;
+  width: 25px;
+}
+
+// style dla mapy
+
+.map {
+  width: 50%;
+  height: 400px;
+  margin: auto;
+  padding: 10px 15px;
+}
+
+// style dla pola do wyszukiwania
+
+.search-container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.search-container input {
+  width: 100%;
+}
+.info_rating{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 1.5rem;
+}
+.address{
+  font-size: 1.5rem;
+}
+.links{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+}
+.links a{
+  font-size: 1.5rem;
+  padding: 5px;
+}
+
+.opinion {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.opinion form > label,
+.opinion h3 {
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.opinion form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding-top: 30px;
+  padding-bottom: 60px;
 }
 
 .submit {
   padding: 10px 15px;
   margin: 10px 15px;
   width: 60%;
-  background-color: $main;
-  border: 1px solid $background;
+  background-color: #23c7d9;
+  border: 1px solid #dfdfdf;
   border-radius: 10px;
-  transition: all 0.4s ease; // Ulepszona animacja
+  transition-duration: 0.4s;
 }
 
 .submit:hover {
   background-color: transparent;
   color: #49aaff;
-  border-color: #49aaff;
+  border: 1px solid #49aaff;
+}
+
+#comments {
+  width: 70%;
+  height: 100px;
+  text-align: center;
 }
 
 .comment {
-  border: 1px solid $akcent1;
+  border: 1px solid #f27127;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  flex-wrap: wrap;
+  width: 40%;
+  margin: 10px 15px;
 }
 
-.star {
-  fill: $akcent2;
-  width: 25px;
+.username {
+  padding: 5px 15px;
 }
-.placeView, .opinion, .comments {
-	display: flex;
-	flex-direction: row; // Domyślnie dla smartfonów
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
+
+.date {
+  padding: 5px 15px;
+}
+
+.comments {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+#userName {
+  width: 70%;
+  text-align: center;
+}
+
+@media screen and (max-width: 780px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    z-index: 150;
   }
-
-@media (max-widch: 1200px){
-	body{
-		background-color: green;
-	}
+  .bar {
+    background-color: #120f0b;
+    width: 20px;
+    height: 3px;
+    display: block;
+    margin: 5px;
+    -webkit-transition: 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .navMenu {
+    position: absolute;
+    flex-direction: column;
+    gap: 0;
+    top: 120px;
+    left: -100%;
+    text-align: start;
+    width: 100%;
+    transition: 0.7s ease-in-out;
+    background-color: $akcent2;
+    padding: 10px;
+    z-index: 100;
+  }
+  .navMenu.active {
+    left: 0;
+  }
+  .navMenu li {
+    margin: 16px 0;
+  }
+  .map {
+    width: 100%;
+    height: 200vh;
+    // padding: 10px 15px;
+  }
+  .placeView{
+    width: 100%;
+    height: auto;
+  }
+  .placeImg{
+    width: 300px;
+    height: auto;
+  }
+  .name_place{
+    font-size: 1.5rem;
+  }
+  .info_rating{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1.25rem;
+  }
+  .stars{
+    display: flex;
+    padding: 10px 15px;
+    width: 100%;
+  }
+  .star{
+    width:100%;
+  }
 }

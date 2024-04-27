@@ -256,6 +256,7 @@ a {
     cursor: pointer;
     z-index: 150;
   }
+
   .bar {
     background-color: #120f0b;
     width: 20px;
@@ -265,15 +266,19 @@ a {
     -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
+
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
+
   .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
+
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+
   .navMenu {
     position: absolute;
     flex-direction: column;
@@ -287,39 +292,48 @@ a {
     padding: 10px;
     z-index: 100;
   }
+
   .navMenu.active {
     left: 0;
   }
+
   .navMenu li {
     margin: 16px 0;
   }
+
   .map {
     width: 100%;
     height: 200vh;
   }
+
   .placeView {
     width: 100%;
     height: auto;
   }
+
   .placeImg {
     width: 300px;
     height: auto;
   }
+
   .name_place {
     font-size: 1.5rem;
   }
+
   .info_rating {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     font-size: 1.25rem;
   }
+
   .stars {
     display: flex;
     padding: 10px 15px;
     width: 100%;
   }
+
   .star {
     width: 100%;
   }
-}/*# sourceMappingURL=main.css.map */
+}

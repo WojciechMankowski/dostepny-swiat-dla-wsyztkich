@@ -1,4 +1,3 @@
-import "../../assets/css/main.css";
 import "bootstrap/dist/css/bootstrap.css";
 import PlacesView from "./places";
 import Maps from "./Map";
