@@ -1,42 +1,26 @@
 import React, { useState } from "react";
 import place from "../../types/place";
+import "../../assets/css/search.css";
+import { BiSearch } from "react-icons/bi";
 
 interface SearchPlacesProps {
-  data: place[];
-  onSearchResult: (results: place[]) => void;
+  onSearch: Function;
 }
 
-const SearchPlaces: React.FC<SearchPlacesProps> = ({
-  data,
-  onSearchResult,
-}) => {
+const SearchPlaces: React.FC<SearchPlacesProps> = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
-
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const term = e.target.value.toLowerCase();
-    setSearchTerm(term);
-
-    if (term !== "") {
-      const filteredData = data.filter(
-        (place) =>
-          place.name.toLowerCase().includes(term) ||
-          place.address.toLowerCase().includes(term) ||
-          place.type_plece_text.toLowerCase().includes(term)
-      );
-      onSearchResult(filteredData);
-    } else {
-      onSearchResult(data);
-      location.reload();
-    }
-  };
 
   return (
     <div className="search-container">
+      <BiSearch className="icon_search" size={"30px"} color="white" />
       <input
         type="text"
-        placeholder="Szukaj miejsc..."
         value={searchTerm}
-        onChange={handleSearch}
+        onChange={(e) => {
+          onSearch(e.target.value);
+          setSearchTerm(e.target.value);
+        }}
+        placeholder="Wyszukuj miejsca "
         className="search-input"
       />
     </div>

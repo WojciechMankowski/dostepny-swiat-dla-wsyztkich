@@ -29,7 +29,6 @@ const CustomMap = ({ data }: PropsMap) => {
 
   // const defaultCenter = { lat: 54.44382540483505, lng: 18.559246442328536 };
   const defaultCenter = markers[0] != undefined ? markers[0]: { lat: 54.44382540483505, lng: 18.559246442328536 }
-  console.log(defaultCenter)
 
   return (
     <APIProvider apiKey={import.meta.env.VITE_API_KEY}>

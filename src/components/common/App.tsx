@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.css";
 import PlacesView from "./places";
 import Maps from "./Map";
 import SearchPlaces from "../features/searchPlace";
@@ -7,17 +6,13 @@ import { AppProps } from "../../types/Props";
 import place from "../../types/place";
 
 const App: React.FC<AppProps> = ({ data }) => {
-  const [filteredData, setFilteredData] = useState<place[]>(data);
+  const [searchResults, setSearchResults] = useState<place[]>(data);
 
   useEffect(() => {
-    setFilteredData(data);
+    setSearchResults(data);
   }, [data]);
 
-  const handleSearchResult = (results: place[]) => {
-    setFilteredData(results);
-  };
-  console.log(filteredData)
-  const dataComponents = filteredData.map((place) => (
+  const dataComponents = searchResults.map((place) => (
     <PlacesView
       key={place.id}
       id={place.id}
@@ -31,13 +26,26 @@ const App: React.FC<AppProps> = ({ data }) => {
       url=""
     />
   ));
-
+  const handleSearch = (term: string) => {
+    if (term !== "") {
+      const filteredData = data.filter((place) => 
+        place.name.toLowerCase().includes(term.toLowerCase()) ||
+        place.address.toLowerCase().includes(term.toLowerCase()) ||
+        place.type_plece_text.toLowerCase().includes(term.toLowerCase())
+      );
+      setSearchResults(filteredData);
+    } else {
+      setSearchResults(data);
+    }
+  };
   return (
     <main className="main-content">
      <section>
-     <SearchPlaces data={filteredData} onSearchResult={handleSearchResult} />
-      <Maps data={filteredData} />
+     <SearchPlaces 
+     onSearch={handleSearch}/>
+      <Maps data={searchResults} />
      </section>
+
       <section>{dataComponents}</section>
     </main>
   );
