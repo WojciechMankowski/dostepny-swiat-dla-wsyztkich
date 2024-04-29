@@ -17,9 +17,9 @@ const Menu = () => {
           <li className="navLink" id="frist" onClick={removeActive}>
             <Link to="/">Strona główna</Link>
           </li>
-          <li className="navLink">
+          {/* <li className="navLink">
             <Link to="/new">Dodaj nowe miejsce</Link>
-          </li>
+          </li> */}
           <li className="navLink">
             <Link to="/ruchowa"> O projekcie</Link>
           </li>

@@ -4,7 +4,7 @@ import SearchPlaces from "../features/searchPlace";
 import { useState, useEffect } from "react";
 import { AppProps } from "../../types/Props";
 import place from "../../types/place";
-
+import '../../assets/css/main.css'
 const App: React.FC<AppProps> = ({ data }) => {
   const [searchResults, setSearchResults] = useState<place[]>(data);
 
