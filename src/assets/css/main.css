@@ -181,7 +181,7 @@ a {
 .search-input {
   width: 260px;
   height: 30px;
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding-left: 30px;
 }
 
@@ -337,6 +337,9 @@ a {
     justify-content: center;
     left: -100%;
     transition: 0.7s ease-in-out;
+  }
+  .btn {
+    width: 100px;
   }
   .navMenu.active {
     left: 0;

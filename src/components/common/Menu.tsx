@@ -67,10 +67,10 @@ const Menu: React.FC<PropsMenu> = ({ data, setSearchResults }) => {
       <div className={`search ${isActive ? "active" : ""}`}>
         <SearchPlaces onSearch={handleSearch} />
         <button onClick={sortingAlphabetically} className="btn btn_abc">
-          <BsSortAlphaDown className="icon"/>
+          <BsSortAlphaDown className="icon" size={30}/>
         </button>
         <button onClick={sort_by_rating} className="btn brn_rating">
-          <BsSortUp className="icon"/>
+          <BsSortUp className="icon" size={30}/>
         </button>
       </div>
     </nav>
