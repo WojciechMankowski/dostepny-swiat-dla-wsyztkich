@@ -64,7 +64,7 @@ const Menu: React.FC<PropsMenu> = ({ data, setSearchResults }) => {
         <span className="bar"></span>
         <span className="bar"></span>
       </div>
-      <div className="search">
+      <div className={`search ${isActive ? "active" : ""}`}>
         <SearchPlaces onSearch={handleSearch} />
         <button onClick={sortingAlphabetically} className="btn btn_abc">
           <BsSortAlphaDown className="icon"/>

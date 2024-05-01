@@ -329,7 +329,7 @@ a {
     position: absolute;
     flex-direction: column;
     gap: 0;
-    top: 200px;
+    top: 50px;
     left: -100%;
     text-align: start;
     width: 100%;
@@ -342,13 +342,17 @@ a {
     position: absolute;
     background-color: $akcent2;
     width: 100%; 
-    top: 300px; 
+    top: 150px; 
     z-index: 100;
-    margin: 15px 20px;
     padding: 2rem 3rem;
     justify-content: center;
+    left: -100%;
+    transition: 0.7s ease-in-out;
   }
   .navMenu.active {
+    left: 0;
+  }
+  .search.active{
     left: 0;
   }
   .navMenu li {
