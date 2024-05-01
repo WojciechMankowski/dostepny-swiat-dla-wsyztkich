@@ -26,9 +26,12 @@ const App: React.FC<AppProps> = ({ data }) => {
       url=""
     />
   ));
+
   return (
     <main className="main-content">
+      <div className="map">
       <Maps data={searchResults} />
+      </div>
 
       <section>{dataComponents}</section>
     </main>
