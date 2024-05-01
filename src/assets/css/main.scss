@@ -198,24 +198,23 @@ a {
   padding-left: 30px;
   
 }
-.info_rating {
+.info_rating{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .address {
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .links {
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  font-size: 1.5rem;
 }
 .links a {
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding: 5px;
 }
 
@@ -378,8 +377,8 @@ a {
   .info_rating {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    font-size: 1.25rem;
+    // justify-content: space-between;
+    font-size: 2rem;
   }
   .stars {
     display: flex;
