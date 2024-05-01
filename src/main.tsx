@@ -16,7 +16,8 @@ import "./assets/css/main.css";
 
 const Main = () => {
   const [data, setData] = useState<place[]>([]);
-  const [dataComents, setDataComents] = useState<CommentsType[]>([]);
+  const [filterdata, setFilterData] = useState<place[]>([]);
+  const [dataComments, setDataComments] = useState<CommentsType[]>([]);
   const [idPlace, setIdPlace] = useState(0);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
@@ -26,52 +27,46 @@ const Main = () => {
     const fetchData = async () => {
       const dataAPI = await get_places();
       setData(dataAPI);
+      setFilterData(dataAPI)
     };
     fetchData();
   }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       const dataAPI = await get_comments();
-      setDataComents(dataAPI);
+      setDataComments(dataAPI);
     };
     fetchData();
   }, []);
+
   return (
-
-      <div className="main">
-        <Router>
-          <MainHeader />
-          <Menu />
-          <Routes>
-            <Route path="/" element={<App data={data} />} />
-
-            <Route path="/new" element={<AddNewPlace />} />
-            <Route path="/ruchowa" element={<Disability />} />
-            <Route path="/intelektualna" element={<Disability />} />
-            <Route
-              path="/opinia/:id"
-              element={
-                <Opinions
-                  data={data}
-                  idPlace={idPlace}
-                  setIdPlace={setIdPlace}
-                  ratting={rating}
-                  setRating={setRating}
-                  comment={comment}
-                  setComment={setComment}
-                  userName={userName}
-                  setUserName={setUserName}
-                />
-              }
+    <div className="main">
+      <Router>
+        <MainHeader />
+        <Menu data={data} setSearchResults={setFilterData} />
+        <Routes>
+          <Route path="/" element={<App data={filterdata} />} />
+          <Route path="/new" element={<AddNewPlace />} />
+          <Route path="/ruchowa" element={<Disability />} />
+          <Route path="/intelektualna" element={<Disability />} />
+          <Route path="/opinia/:id" element={
+            <Opinions
+              data={data}
+              idPlace={idPlace}
+              setIdPlace={setIdPlace}
+              ratting={rating}
+              setRating={setRating}
+              comment={comment}
+              setComment={setComment}
+              userName={userName}
+              setUserName={setUserName}
             />
-            <Route
-              path="/komentarze/:id"
-              element={<CommentsView data={dataComents} />}
-            />
-          </Routes>
-        </Router>
-      </div>
-
+          } />
+          <Route path="/komentarze/:id" element={<CommentsView data={dataComments} />} />
+        </Routes>
+      </Router>
+    </div>
   );
 };
 

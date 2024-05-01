@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../../assets/css/search.css";
 import { BiSearch } from "react-icons/bi";
 
 interface SearchPlacesProps {

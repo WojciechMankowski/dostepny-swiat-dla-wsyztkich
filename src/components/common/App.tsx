@@ -1,10 +1,10 @@
 import PlacesView from "./places";
 import Maps from "./Map";
-import SearchPlaces from "../features/searchPlace";
 import { useState, useEffect } from "react";
 import { AppProps } from "../../types/Props";
 import place from "../../types/place";
-import '../../assets/css/main.css'
+import "../../assets/css/main.css";
+
 const App: React.FC<AppProps> = ({ data }) => {
   const [searchResults, setSearchResults] = useState<place[]>(data);
 
@@ -26,25 +26,9 @@ const App: React.FC<AppProps> = ({ data }) => {
       url=""
     />
   ));
-  const handleSearch = (term: string) => {
-    if (term !== "") {
-      const filteredData = data.filter((place) => 
-        place.name.toLowerCase().includes(term.toLowerCase()) ||
-        place.address.toLowerCase().includes(term.toLowerCase()) ||
-        place.type_plece_text.toLowerCase().includes(term.toLowerCase())
-      );
-      setSearchResults(filteredData);
-    } else {
-      setSearchResults(data);
-    }
-  };
   return (
     <main className="main-content">
-     <section>
-     <SearchPlaces 
-     onSearch={handleSearch}/>
       <Maps data={searchResults} />
-     </section>
 
       <section>{dataComponents}</section>
     </main>
