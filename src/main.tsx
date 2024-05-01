@@ -1,11 +1,11 @@
 import ReactDOM from "react-dom/client";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 import App from "./components/common/App.tsx";
 import Menu from "./components/common/Menu.tsx";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddNewPlace from "./pages/add_new_pa";
 import Disability from "./pages/disability";
-import "bootstrap/dist/css/bootstrap.css";
 import MainHeader from "./components/common/Header.tsx";
 import Opinions from "./pages/opinions.tsx";
 import CommentsView from "./pages/comments.tsx";
@@ -13,7 +13,7 @@ import { get_places, get_comments } from "./helps/connect_api.ts";
 import place from "./types/place.ts";
 import CommentsType from "./types/compoments.ts";
 import "./assets/css/main.css";
-import { ThemeProvider } from "@material-tailwind/react";
+
 
 const Main = () => {
   const [data, setData] = useState<place[]>([]);
@@ -38,7 +38,7 @@ const Main = () => {
     fetchData();
   }, []);
   return (
-    <ThemeProvider>
+
       <div className="main">
         <Router>
           <MainHeader />
@@ -72,7 +72,7 @@ const Main = () => {
           </Routes>
         </Router>
       </div>
-    </ThemeProvider>
+
   );
 };
 
