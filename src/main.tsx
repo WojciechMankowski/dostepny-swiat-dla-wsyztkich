@@ -1,5 +1,4 @@
 import ReactDOM from "react-dom/client";
-// import { useState, useEffect } from "react";
 import { useState, useEffect } from 'react';
 import App from "./components/common/App.tsx";
 import Menu from "./components/common/Menu.tsx";
