@@ -360,7 +360,7 @@ a {
   }
   .map {
     width: 100%;
-    height: 100px;
+    height: 200px;
     padding: 0;
     margin: 0;
   }
@@ -369,7 +369,7 @@ a {
     height: auto;
   }
   .placeImg {
-    width: 300px;
+    width: 150px;
     height: auto;
   }
   .name_place {
@@ -393,7 +393,9 @@ a {
 
 @media screen and (max-width: 780px) {
   .map {
-    width: 250px;
+    width: 100%;
     height: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
