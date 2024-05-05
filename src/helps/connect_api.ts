@@ -3,23 +3,8 @@ import place from '../types/place'
 import CommentsType from '../types/compoments'
 import getTypePlace from './get_type_place'
 
-// import.meta.env.VITE_API_KEY
 
-type rating = {
-	id: number
-	score: number
-	number_of_ratings: number
-}
 
-export const get_rating = async (url: string): Promise<rating[]> => {
-	try {
-		const response = await axios.get<rating[]>(url)
-		return response.data
-	} catch (error) {
-		console.error('Wystąpił błąd przy pobieraniu ocen:', error)
-		return []
-	}
-}
 
 export const get_places = async (): Promise<place[]> => {
 	const currentURL = window.location.hostname
