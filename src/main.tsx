@@ -8,7 +8,7 @@ import Disability from "./pages/disability";
 import MainHeader from "./components/common/Header.tsx";
 import Opinions from "./pages/opinions.tsx";
 import CommentsView from "./pages/comments.tsx";
-import { get_places, get_comments } from "./helps/connect_api.ts";
+import { get_places } from "./helps/connect_api.ts";
 import place from "./types/place.ts";
 import CommentsType from "./types/compoments.ts";
 import "./assets/css/main.css";
@@ -32,13 +32,13 @@ const Main = () => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const dataAPI = await get_comments();
-      setDataComments(dataAPI);
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const dataAPI = await get_comments();
+  //     setDataComments(dataAPI);
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="main">

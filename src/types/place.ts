@@ -1,21 +1,18 @@
+import Rating from "./rating";
+
 type place = {
-	id: number | string
-	name: string
-	address: string
-	url_image: string
-	url_map_google: string
-	ratings: [
-		{
-			id: number
-			score: number
-			number_of_ratings: number
-		}
-	]
-	url: string
-	type_place: number
-	type_plece_text: string
+  readonly id: number;
+  readonly address: string;
+  readonly name: string;
+  readonly type_place: number;
+  readonly url_image: string;
+  readonly url_map_google: string;
+  readonly optionchoices: {
+    choice_text: string;
+    id: string;
+  };
+  rating: Rating[];
+  key: number
+};
 
-	
-}
-
-export default place
+export default place;

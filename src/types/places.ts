@@ -1,11 +1,16 @@
-type placesPropsType = {
-	id: number | string
-	name: string
-	address: string
-	url_img: string
-	url_map_google: string
-	number_of_ratings: number | undefined
-	rating: number | undefined
-}
+import Rating from "./rating";
 
-export default placesPropsType
+interface Place {
+  readonly id: number;
+ readonly address: string;
+ readonly name: string;
+ readonly type_place: number;
+ readonly url_image: string;
+ readonly url_map_google: string;
+ readonly optionchoices: {
+  choice_text: string
+  id: string
+ }
+ rating: Rating[]
+}
+export default Place;

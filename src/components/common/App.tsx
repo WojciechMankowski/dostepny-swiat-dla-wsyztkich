@@ -20,17 +20,16 @@ const App: React.FC<AppProps> = ({ data }) => {
       address={place.address}
       url_image={place.url_image}
       url_map_google={place.url_map_google}
+      optionchoices={place.optionchoices}
+      rating={place.rating}
       type_place={place.type_place}
-      type_plece_text={place.type_plece_text}
-      ratings={place.ratings}
-      url=""
     />
   ));
 
   return (
     <main className="main-content">
       <div className="map">
-      <Maps data={searchResults} />
+        <Maps data={searchResults} />
       </div>
 
       <section>{dataComponents}</section>

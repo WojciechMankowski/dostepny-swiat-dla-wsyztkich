@@ -8,9 +8,9 @@ const PlacesView = (props: place) => {
   const id = props.id.toString();
   const url = "/opinia/" + id;
   const url_comment = "/komentarze/" + id;
-  const rating = 5 - Math.floor(props.ratings[0].score);
+  const rating = 5 - Math.floor(props.rating[0].score);
   const ratigList = Array(rating).fill("test");
-  const ratigListFill = Array(Math.floor(props.ratings[0].score)).fill("test");
+  const ratigListFill = Array(Math.floor(props.rating[0].score)).fill("test");
   const ratingHTMLNotFill: JSX.Element[] = [];
   const ratingHTML: JSX.Element[] = [];
 
@@ -31,10 +31,10 @@ const PlacesView = (props: place) => {
           {ratingHTMLNotFill}
         </div>
         <div className="info_rating">
-          <span>Ocena: {props.ratings[0].score} </span>
-          <span> Liczba ocen: {props.ratings[0].number_of_ratings}</span>
+          <span>Ocena: {props.rating[0].score} </span>
+          <span> Liczba ocen: {props.rating[0].number_of_ratings}</span>
           <p> Typ miejsca:  <strong>
-		  {props.type_plece_text}</strong> </p>
+		  {props.optionchoices.choice_text}</strong> </p>
         </div>
 
         <p className="address">
