@@ -1,4 +1,7 @@
-@charset "UTF-8";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
@@ -11,60 +14,11 @@ html {
   overflow-x: hidden;
 }
 
-ul {
-  list-style: none;
-}
 
 a {
   text-decoration: none;
   color: black;
   font-size: 18px;
-}
-
-/* navbar */
-.nav {
-  background-color: #e7c500;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 40px;
-  min-height: 70px;
-  position: relative;
-}
-
-.search {
-  width: 40%;
-  display: flex;
-  flex-direction: row;
-  right: 0;
-  position: absolute;
-}
-
-.btn {
-  background-color: #086788;
-  border: none;
-  margin-left: 15px;
-  width: 60px;
-  height: 30px;
-}
-
-.icon {
-  fill: white;
-}
-
-/* ul  */
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-}
-
-.navMenu {
-  width: 40%;
-  display: flex;
-  align-items: center;
-  gap: 60px;
 }
 
 .site-header {
@@ -317,8 +271,10 @@ a {
   .navMenu {
     position: absolute;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 0;
-    top: 50px;
+    top: 120px;
     left: -100%;
     text-align: start;
     width: 100%;
@@ -331,7 +287,7 @@ a {
     position: absolute;
     background-color: #e7c500;
     width: 100%;
-    top: 150px;
+    top: 250px;
     z-index: 100;
     padding: 2rem 3rem;
     justify-content: center;

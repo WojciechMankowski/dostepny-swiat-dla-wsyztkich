@@ -29,8 +29,9 @@ const App: React.FC<AppProps> = ({ data }) => {
 
   return (
     <main className="main-content">
+      <p className="text-3xl font-bold text-main">Hello world!</p>
       <div className="map">
-      <Maps data={searchResults} />
+        <Maps data={searchResults} />
       </div>
 
       <section>{dataComponents}</section>
