@@ -26,6 +26,8 @@ const Main = () => {
   useEffect(() => {
     const fetchData = async () => {
       const dataAPI = await get_places();
+      console.log('pobieram dane')
+      console.log(dataAPI)
       setData(dataAPI);
       setFilterData(dataAPI)
     };
@@ -48,7 +50,7 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<App data={filterdata} />} />
           <Route path="/new" element={<AddNewPlace />} />
-          <Route path="/ruchowa" element={<Disability />} />
+          {/* <Route path="/o_projekcie" element={} /> */}
           <Route path="/intelektualna" element={<Disability />} />
           <Route path="/opinia/:id" element={
             <Opinions

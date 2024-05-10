@@ -5,7 +5,7 @@ import {
   useAdvancedMarkerRef,
   Pin,
 } from "@vis.gl/react-google-maps";
-import MarkerType from "../../../types/MarkerType";
+import MarkerType from "../../types/MarkerType";
 
 const getColorScheme = (placeType: string) => {
   switch (placeType) {

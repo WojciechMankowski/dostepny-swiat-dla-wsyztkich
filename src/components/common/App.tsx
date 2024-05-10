@@ -20,21 +20,22 @@ const App: React.FC<AppProps> = ({ data }) => {
       address={place.address}
       url_image={place.url_image}
       url_map_google={place.url_map_google}
+      optionchoices={place.optionchoices}
+      rating={place.rating}
       type_place={place.type_place}
-      type_plece_text={place.type_plece_text}
-      ratings={place.ratings}
-      url=""
     />
   ));
 
   return (
     <main className="main-content">
-      <p className="text-3xl font-bold text-main">Hello world!</p>
       <div className="map">
         <Maps data={searchResults} />
       </div>
 
-      <section>{dataComponents}</section>
+      <section>
+        <h2 className="text-4xl font-extrabold p-5">Lista miejsc: </h2>
+        {dataComponents}
+      </section>
     </main>
   );
 };

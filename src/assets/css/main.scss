@@ -22,60 +22,6 @@ html {
   font-size: 10px;
   overflow-x: hidden;
 }
-// //  stylowanie menu
-
-// ul {
-//   list-style: none;
-// }
-
-// a {
-//   text-decoration: none;
-//   color: black;
-//   font-size: 18px;
-// }
-
-// /* navbar */
-// .nav {
-//   background-color: $akcent2;
-//   padding: 10px 20px;
-//   display: flex;
-//   justify-content: space-between;
-//   align-items: center;
-//   gap: 40px;
-//   min-height: 70px;
-//   position: relative;
-// }
-// .search{
-//   width: 40%;
-//   display: flex;
-//   flex-direction: row;
-//   right: 0;
-//   position: absolute;
-// }
-// .btn{
-//   background-color: $akcent3;
-//   border: none;
-//   margin-left: 15px;
-//   width: 60px;
-//   height: 30px;
-// }
-// .icon{
-//   fill: white;
-// }
-// /* ul  */
-// .nav{
-//   display: flex;
-//   // justify-content: space-between;
-//   align-items: center;
-//   gap: 60px;
-// }
-// .navMenu {
-//   width: 40%;
-//   display: flex;
-//   // justify-content: space-between;
-//   align-items: center;
-//   gap: 60px;
-// }
 // ustawienie nagłówka z logo
 
 .site-header {
@@ -117,47 +63,7 @@ html {
   padding: 10px 15px 5px;
 }
 
-// ustawienie listy miejsc
-
-.placeView {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 80%;
-  padding: 10px 15px;
-}
-
-.placeView a,
-.place a {
-  text-decoration: none;
-  padding: 10px 15px;
-  color: black;
-}
-
-// ustawienia dla pojedyńczego miejsca
-.place {
-  width: 80%;
-  padding: 10px 15px;
-  margin: 5px 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-.placeImg {
-  width: 20%;
-}
-
-.address_data {
-  padding: 5px 20px;
-}
-.name_place {
-  font-size: 2rem;
-  font-weight: 600;
-}
+ 
 // style dla wyświetlania gwiazdek
 .star {
   fill: #e7c500;
@@ -171,10 +77,10 @@ html {
 // style dla mapy
 
 .map {
-  width: 50%;
-  height: 400px;
+  // width: 100%;
+  // height: 400px;
   margin: auto;
-  padding: 10px 15px;
+  // padding: 10px 15px;
 }
 
 // style dla pola do wyszukiwania
