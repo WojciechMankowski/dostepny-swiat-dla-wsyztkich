@@ -8,6 +8,7 @@ import Disability from "./pages/disability";
 import MainHeader from "./components/common/Header.tsx";
 import Opinions from "./pages/opinions.tsx";
 import CommentsView from "./pages/comments.tsx";
+import About from "./pages/about.tsx";
 import { get_places, get_comments } from "./helps/connect_api.ts";
 import place from "./types/place.ts";
 import CommentsType from "./types/compoments.ts";
@@ -50,7 +51,7 @@ const Main = () => {
         <Routes>
           <Route path="/" element={<App data={filterdata} />} />
           <Route path="/new" element={<AddNewPlace />} />
-          {/* <Route path="/o_projekcie" element={} /> */}
+          <Route path="/o_projekcie" element={<About />} />
           <Route path="/intelektualna" element={<Disability />} />
           <Route path="/opinia/:id" element={
             <Opinions
