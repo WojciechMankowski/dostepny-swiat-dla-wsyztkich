@@ -162,47 +162,6 @@ a {
   padding: 5px;
 }
 
-.opinion {
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-}
-
-.opinion form > label,
-.opinion h3 {
-  padding-top: 15px;
-  padding-bottom: 20px;
-}
-
-.opinion form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  padding-top: 30px;
-  padding-bottom: 60px;
-}
-
-.submit {
-  padding: 10px 15px;
-  margin: 10px 15px;
-  width: 60%;
-  background-color: #23c7d9;
-  border: 1px solid #dfdfdf;
-  border-radius: 10px;
-  transition-duration: 0.4s;
-}
-
-.submit:hover {
-  background-color: transparent;
-  color: #49aaff;
-  border: 1px solid #49aaff;
-}
 
 #comments {
   width: 70%;
