@@ -27,7 +27,7 @@ export const get_comments = async (): Promise<CommentsType[]> => {
   const currentURL = window.location.hostname;
   let url;
   if (currentURL == "localhost") {
-    url = `${import.meta.env.VITE_LOCALE}places/`;
+    url = `${import.meta.env.VITE_LOCALE}comments`;
   } else {
     url = `${import.meta.env.VITE_PROD}places/`;
   }
@@ -38,7 +38,6 @@ export const get_comments = async (): Promise<CommentsType[]> => {
     return data;
   } catch (error) {
     console.error("Wystąpił błąd podczas pobierania komentarzy:", error);
-    // Możesz zdecydować, czy zwracać pustą tablicę, czy propagować błąd dalej
     return [];
   }
 };

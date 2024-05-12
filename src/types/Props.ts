@@ -1,5 +1,4 @@
 import place from "./place";
-
 import CommentsType from "./compoments";
 
 export type AppProps = {
@@ -29,5 +28,14 @@ export type RatingProps = {
   setComment: Function;
   userName: string;
   setUserName: Function;
-  ratting: number; // Poprawiłem błąd w nazwie propsa
+  ratting: number;
+};
+
+export type CommentProps = {
+  name: string;
+  optionchoices: {
+    choice_text: string;
+    id: string;
+  };
+  comments: CommentsType[];
 };

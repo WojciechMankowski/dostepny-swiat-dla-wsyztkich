@@ -27,8 +27,7 @@ const Main = () => {
   useEffect(() => {
     const fetchData = async () => {
       const dataAPI = await get_places();
-      console.log('pobieram dane')
-      console.log(dataAPI)
+      
       setData(dataAPI);
       setFilterData(dataAPI)
     };
@@ -38,6 +37,8 @@ const Main = () => {
   useEffect(() => {
     const fetchData = async () => {
       const dataAPI = await get_comments();
+      // console.log('pobieram dane')
+      // console.log(dataAPI)
       setDataComments(dataAPI);
     };
     fetchData();
@@ -60,9 +61,7 @@ const Main = () => {
               setIdPlace={setIdPlace}
               ratting={rating}
               setRating={setRating}
-              comment={comment}
               setComment={setComment}
-              userName={userName}
               setUserName={setUserName}
             />
           } />
