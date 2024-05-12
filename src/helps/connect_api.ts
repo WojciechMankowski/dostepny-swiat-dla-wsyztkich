@@ -12,7 +12,7 @@ export const get_places = async (): Promise<place[]> => {
   } else {
     url = `${import.meta.env.VITE_PROD}places/`;
   }
-  console.log(url)
+  console.log(import.meta.env.VITE_PROD)
   try {
     axios.defaults.headers["X-API-KEY"] = import.meta.env.VITE_API_KEY_API;
     const response = await axios.get<place[]>(url);
