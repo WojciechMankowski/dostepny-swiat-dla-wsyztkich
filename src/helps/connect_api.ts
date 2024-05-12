@@ -30,7 +30,7 @@ export const get_comments = async (): Promise<CommentsType[]> => {
   if (currentURL == "localhost") {
     url = `${import.meta.env.VITE_LOCALE}comments`;
   } else {
-    url = `${import.meta.env.VITE_PROD}places/`;
+    url = `${import.meta.env.VITE_PROD}comments`;
   }
   try {
     const response = await axios.get<CommentsType[]>(url);
