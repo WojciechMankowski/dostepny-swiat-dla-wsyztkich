@@ -1,23 +1,30 @@
 import axios from "axios";
 
+export const add_new_place = () => {};
 
-export const add_new_place = () => {}
-
-
-export const update_ratings = async (id: number, score: number, how: number) => {
-    const url = 'http://127.0.0.1:8000/api/ratings/' + id + "/"
-    const data = {
-        score: score, number_of_ratings: how
-    }
-    try {
-        const response = await axios.put(url, data, {
-          headers: {
-            'Content-Type': 'application/json'
-          },
-        });
-    
-        console.log(response.data); 
-      } catch (error) {
-        console.error('There was an error:', error); 
-}
-}
+export const update_ratings = async (
+  id: number,
+  score: number,
+  how: number
+) => {
+  const data = {
+    score: score,
+    number_of_ratings: how,
+  };
+  const currentURL = window.location.hostname;
+  let url;
+  if (currentURL == "localhost") {
+    url = `${import.meta.env.VITE_LOCALE}rating/${id}`;
+  } else {
+    url = `${import.meta.env.VITE_PROD}places/`;
+  }
+  try {
+    axios.defaults.headers["X-API-KEY"] = import.meta.env.VITE_API_KEY_API;
+    const response = await axios.put(url, data);
+    console.log("Update")
+    console.log(response)
+  } catch (error) {
+    console.error("Wystąpił błąd podczas aktualizacji oceny:", error);
+    return [];
+  }
+};

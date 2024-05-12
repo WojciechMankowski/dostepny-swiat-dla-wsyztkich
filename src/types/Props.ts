@@ -1,19 +1,33 @@
-import place from './place'
-import CommentsType from './compoments'
+import place from "./place";
+
+import CommentsType from "./compoments";
+
 export type AppProps = {
-	data: place[]
-}
+  data: place[];
+};
 
 export type OpinionsProps = {
-	data: place[]
-	comments: CommentsType[]
-	setIdPlace: Function
-	setRating: Function
-	setComment: Function
-	setUserName: Function
-	ratting: number
-}
+  data: place[];
+  comments: CommentsType[];
+  setIdPlace: Function;
+  setRating: Function;
+  setComment: Function;
+  setUserName: Function;
+  ratting: number;
+};
 
 export type PropsMap = {
-	data: place[]
-  }
+  data: place[];
+};
+
+export type RatingProps = {
+  data: place[];
+  idPlace: number;
+  comment: string;
+  setIdPlace: Function;
+  setRating: Function;
+  setComment: Function;
+  userName: string;
+  setUserName: Function;
+  ratting: number; // Poprawiłem błąd w nazwie propsa
+};
