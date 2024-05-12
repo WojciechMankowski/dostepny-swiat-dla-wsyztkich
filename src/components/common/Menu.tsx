@@ -1,4 +1,3 @@
-// Menu.tsx
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import SearchPlaces from "../features/searchPlace";
@@ -21,7 +20,7 @@ const Menu: React.FC<PropsMenu> = ({ data, setSearchResults }) => {
       const filteredData = data.filter((place) =>
         place.name.toLowerCase().includes(term.toLowerCase()) ||
         place.address.toLowerCase().includes(term.toLowerCase()) ||
-        place.type_plece_text.toLowerCase().includes(term.toLowerCase())
+        place.optionchoices.choice_text.toLowerCase().includes(term.toLowerCase())
       );
       setSearchResults(filteredData);
     } else {
@@ -37,7 +36,7 @@ const Menu: React.FC<PropsMenu> = ({ data, setSearchResults }) => {
   };
 
   const sortByRating = () => {
-    const newData = [...data].sort((a, b) => b.ratings[0].score - a.ratings[0].score);
+    const newData = [...data].sort((a, b) => b.rating[0].score - a.rating[0].score);
     setSearchResults(newData);
   };
 

@@ -11,8 +11,7 @@ type AppProps = {
   idPlace: number;
   setIdPlace: Function;
   setRating: Function;
-  setComment: Function;
-  setUserName: Function;
+
   ratting: number;
 };
 

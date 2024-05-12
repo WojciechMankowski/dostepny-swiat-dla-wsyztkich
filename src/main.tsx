@@ -21,8 +21,7 @@ const Main = () => {
   const [dataComments, setDataComments] = useState<CommentsType[]>([]);
   const [idPlace, setIdPlace] = useState(0);
   const [rating, setRating] = useState(0);
-  const [comment, setComment] = useState("");
-  const [userName, setUserName] = useState("");
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,8 +60,7 @@ const Main = () => {
               setIdPlace={setIdPlace}
               ratting={rating}
               setRating={setRating}
-              setComment={setComment}
-              setUserName={setUserName}
+            
             />
           } />
           <Route path="/komentarze/:id" element={<CommentsView data={dataComments} />} />
