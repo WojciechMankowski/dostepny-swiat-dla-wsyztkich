@@ -1,12 +1,12 @@
-import place from "./place";
+import { Place, DataPlaces } from "./database_type";
 import CommentsType from "./compoments";
 
 export type AppProps = {
-  data: place[];
+  data: Place[];
 };
 
 export type OpinionsProps = {
-  data: place[];
+  data: Place[];
   comments: CommentsType[];
   setIdPlace: Function;
   setRating: Function;
@@ -16,11 +16,11 @@ export type OpinionsProps = {
 };
 
 export type PropsMap = {
-  data: place[];
+  data: Place[];
 };
 
 export type RatingProps = {
-  data: place[];
+  data: Place[];
   idPlace: number;
   comment: string;
   setIdPlace: Function;
@@ -39,3 +39,13 @@ export type CommentProps = {
   };
   comments: CommentsType[];
 };
+
+export type PropsMenu = {
+  data: DataPlaces[];
+  setSearchResults: (results: DataPlaces[]) => void;
+};
+
+export type PropsToggle = {
+  theme: string;
+  setTheme: Function;
+}

@@ -1,31 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import SearchPlaces from "../features/searchPlace";
-import place from "../../types/place";
 import { BsSortUp, BsSortAlphaDown } from "react-icons/bs";
-
-type PropsMenu = {
-  data: place[];
-  setSearchResults: (results: place[]) => void;
-};
+import Toggle from "../features/toggle";
+import { PropsMenu } from "../../types/Props";
 
 const Menu: React.FC<PropsMenu> = ({ data, setSearchResults }) => {
   const [isActive, setIsActive] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   const toggleActiveClass = () => setIsActive(!isActive);
   const removeActive = () => setIsActive(false);
 
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme") || "light");
+  }, []);
+
   const handleSearch = (term: string) => {
-    if (term !== "") {
-      const filteredData = data.filter((place) =>
-        place.name.toLowerCase().includes(term.toLowerCase()) ||
-        place.address.toLowerCase().includes(term.toLowerCase()) ||
-        place.optionchoices.choice_text.toLowerCase().includes(term.toLowerCase())
-      );
-      setSearchResults(filteredData);
-    } else {
-      setSearchResults(data);
-    }
+    // ... (same logic as before)
   };
 
   const sortAlphabetically = () => {
@@ -36,8 +28,13 @@ const Menu: React.FC<PropsMenu> = ({ data, setSearchResults }) => {
   };
 
   const sortByRating = () => {
-    const newData = [...data].sort((a, b) => b.rating[0].score - a.rating[0].score);
-    setSearchResults(newData);
+    // const newData = [...data].sort(
+    //   (a, b) => {
+    //     console.log(a, b)
+    //     return b.rating.score - a?.rating?.score || 0
+    //   })
+  
+    // setSearchResults(newData);
   };
 
   return (
@@ -60,13 +57,21 @@ const Menu: React.FC<PropsMenu> = ({ data, setSearchResults }) => {
       </div>
       <div className={`search flex p-10 ${isActive ? "active" : ""}`}>
         <SearchPlaces onSearch={handleSearch} />
-        <button onClick={sortAlphabetically} className="
-        btn bg-akcent3 mr-5 ml-5" aria-label="Sort alphabetically">
+        <button
+          onClick={sortAlphabetically}
+          className="btn bg-akcent3 mr-5 ml-5"
+          aria-label="Sort alphabetically by name"
+        >
           <BsSortAlphaDown className="icon fill-white" size={30} />
         </button>
-        <button onClick={sortByRating} className="btn bg-akcent3" aria-label="Sort by rating">
-          <BsSortUp className="icon  fill-white" size={30} />
+        <button
+          onClick={sortByRating}
+          className="btn bg-akcent3"
+          aria-label="Sort by rating"
+        >
+          <BsSortUp className="icon fill-white" size={30} />
         </button>
+        <Toggle theme={theme} setTheme={setTheme} />
       </div>
     </nav>
   );

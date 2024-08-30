@@ -5,6 +5,7 @@ import Place from "../components/features/place";
 import "@smastrom/react-rating/style.css";
 import place from "../types/place";
 import { update_ratings } from "../helps/add_value";
+import { add_comments } from "../helps/add_value";
 
 type AppProps = {
   data: place[];
@@ -22,8 +23,8 @@ const Opinions = (props: AppProps) => {
   const [ratingError, setRatingError] = useState<string>("");
   const [commentError, setCommentError] = useState<string>("");
 
-  const { id } = useParams<{ id: string }>();
-  const data = props.data.find((place) => place.id.toString() === id);
+  const id = useParams<{ id: string }>();
+  const data = props.data.find((place) => place.id.toString() === id.id);
   const ratings = data?.rating[0];
 
   useEffect(() => {
@@ -38,8 +39,11 @@ const Opinions = (props: AppProps) => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    setRatingError("");
+    setCommentError("");
     let isRatting = true;
     let isComments = true;
+
     if (localRating === 0) {
       setRatingError(
         "Aby ocenić miejsce, musisz wybrać odpowiednią ilość gwiazdek."
@@ -57,18 +61,29 @@ const Opinions = (props: AppProps) => {
     } else {
       setCommentError("");
     }
-    if (isRatting) {
-      const oldPlaceRating = data?.rating[0];
-      console.log(oldPlaceRating);
-      const totalRatings = (oldPlaceRating?.number_of_ratings || 0) + 1;
-      const newScore =
-        ((oldPlaceRating?.score || 0) *
-          (oldPlaceRating?.number_of_ratings || 0) +
-          localRating) /
-        totalRatings;
-      update_ratings(oldPlaceRating?.place_id || 0, newScore, totalRatings);
+
+    const oldPlaceRating = data?.rating[0];
+    console.log(oldPlaceRating);
+    if (!oldPlaceRating) {
+      console.error("Brak danych o miejscu");
+      return;
     }
-    if (isComments) {
+
+    const newTotalRatings = oldPlaceRating.number_of_ratings + 1;
+    const newScore =
+      (oldPlaceRating.score * oldPlaceRating.number_of_ratings + localRating) /
+      newTotalRatings;
+    if (isRatting && isComments) {
+      update_ratings(oldPlaceRating.place_id, newScore, newTotalRatings);
+      add_comments(userName, comments, +id || 1);
+      console.log(
+        "Aktualizacja oceny i dodanie komentarza zakończone sukcesem."
+      );
+    } else if (isRatting) {
+      update_ratings(oldPlaceRating.place_id, newScore, newTotalRatings);
+      console.log(
+        "Aktualizacja oceny i dodanie komentarza zakończone sukcesem."
+      );
     }
   };
 

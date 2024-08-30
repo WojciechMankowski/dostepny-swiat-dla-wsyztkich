@@ -1,44 +1,25 @@
+import { fetchPlaces, fetchRatingWithId, fetchCommendWithId } from "./database";
+import { Place, DataPlaces } from "../types/database_type";
+import getTypePlace from "./get_type_place";
+export const get_places = async (): Promise<DataPlaces[]> => {
+  const places = await fetchPlaces();
+  const placesData: DataPlaces[] = [];
 
-import axios from "axios";
-import place from "../types/place";
-import CommentsType from "../types/compoments";
+  for (const place of places) {
+    const rating = await fetchRatingWithId(place.id);
+    const comments = await fetchCommendWithId(place.id);
+      
+    const newData: DataPlaces = {
+      ...place,
+      rating: rating,
+      comments: comments,
+      type_place_text: getTypePlace(place.type_place)
+    };
 
-
-export const get_places = async (): Promise<place[]> => {
-  const currentURL = window.location.hostname;
-  let url;
-  if (currentURL == "localhost") {
-    url = `${import.meta.env.VITE_LOCALE}places/`;
-  } else {
-    url = `${import.meta.env.VITE_PROD}places/`;
+    placesData.push(newData);
   }
-  
-  try {
-    axios.defaults.headers["X-API-KEY"] = import.meta.env.VITE_API_KEY_API;
-    const response = await axios.get<place[]>(url);
-    const placesData = response.data;
-    return placesData;
-  } catch (error) {
-    console.error("Wystąpił błąd przy pobieraniu miejsc:", error);
-    return [];
-  }
+
+  return placesData;
 };
 
-export const get_comments = async (): Promise<CommentsType[]> => {
-  const currentURL = window.location.hostname;
-  let url;
-  if (currentURL == "localhost") {
-    url = `${import.meta.env.VITE_LOCALE}comments`;
-  } else {
-    url = `${import.meta.env.VITE_PROD}comments`;
-  }
-  try {
-    const response = await axios.get<CommentsType[]>(url);
-    const commentsData = response.data;
-    const data = [...commentsData];
-    return data;
-  } catch (error) {
-    console.error("Wystąpił błąd podczas pobierania komentarzy:", error);
-    return [];
-  }
-};
+

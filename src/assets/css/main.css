@@ -2,11 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --main: #23c7d9;
+  --akcent1: #f27127;
+  --akcent2: #e7c500;
+  --akcent3: #086788;
+  --colortext: #000;
+  --background: #fff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: black;
 }
 
 html {
@@ -14,19 +22,27 @@ html {
   overflow-x: hidden;
 }
 
+body {
+  background-color: var(--background);
+  color: var(--colortext);
+}
+
+#root {
+  background-color: var(--background);
+  color: var(--colortext);
+}
 
 a {
   text-decoration: none;
   color: black;
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 .site-header {
-  background-color: #23c7d9;
+  background-color: var(--main);
   padding: 20px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -38,7 +54,7 @@ a {
 
 .logo_text {
   text-align: center;
-  font-size: 25px;
+  font-size: 2.5rem;
   font-weight: 700;
   color: white;
   margin-bottom: 5px;
@@ -65,6 +81,7 @@ a {
   align-items: center;
   width: 80%;
   padding: 10px 15px;
+  background-color: var(--background);
 }
 
 .placeView a,
@@ -82,7 +99,6 @@ a {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-content: center;
 }
 
 .placeImg {
@@ -99,7 +115,7 @@ a {
 }
 
 .star {
-  fill: #e7c500;
+  fill: var(--akcent2);
   width: 25px;
 }
 
@@ -109,7 +125,7 @@ a {
 }
 
 .map {
-  width: 50%;
+  width: 100%;
   height: 400px;
   margin: auto;
   padding: 10px 15px;
@@ -121,14 +137,14 @@ a {
 
 .icon_search {
   position: absolute;
-  left: -3px; /* Reguluj odległość od lewej krawędzi kontenera */
+  left: -3px;
   top: 50%;
-  transform: translateY(-50%); /* Centruje ikonę pionowo */
+  transform: translateY(-50%);
   z-index: 10;
   padding-left: 10px;
   padding-right: 5px;
   border-right: 1px solid black;
-  background-color: #086788;
+  background-color: var(--akcent3);
   fill: white;
 }
 
@@ -162,7 +178,6 @@ a {
   padding: 5px;
 }
 
-
 #comments {
   width: 70%;
   height: 100px;
@@ -170,7 +185,7 @@ a {
 }
 
 .comment {
-  border: 1px solid #f27127;
+  border: 1px solid var(--akcent1);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -202,12 +217,72 @@ a {
   width: 70%;
   text-align: center;
 }
-.map {
-  width: 100%;
-  height: 400px;
-  margin-left: auto;
-  margin-right: auto;
+
+footer {
+  height: 100%;
+  background-color: var(--main);
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
 }
+
+footer a {
+  font-size: 1rem;
+}
+
+.grid-item {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Dark Mode */
+
+.toggle {
+  width: 50px;
+  height: 30px;
+  background-color: var(--akcent1);
+  margin-left: 5px;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle.icon {
+  width: 15px;
+  height: 15px;
+  background-color: var(--akcent3);
+  border-radius: 50%;
+  position: absolute;
+  left: -4px;
+  /* transform: translateY(-50%); */
+}
+
+#root.dark {
+  --background: #808080;
+}
+
+#root.dark .toggle.icon {
+  background: yellow;
+  transform: translateX(25px);
+  /* padding-right: 10px; */
+}
+
+#root.dark .toggle.icon::after {
+  content: "";
+  background-color: black;
+  display: block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  position: absolute;
+  left: -5px;
+
+}
+
+/* Media Queries */
 
 @media screen and (max-width: 1200px) {
   .hamburger {
@@ -215,24 +290,28 @@ a {
     cursor: pointer;
     z-index: 150;
   }
+
   .bar {
     background-color: #120f0b;
     width: 20px;
     height: 3px;
     display: block;
     margin: 5px;
-    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
+
   .hamburger.active .bar:nth-child(2) {
     opacity: 0;
   }
+
   .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
   }
+
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+
   .navMenu {
     position: absolute;
     flex-direction: column;
@@ -244,13 +323,14 @@ a {
     text-align: start;
     width: 100%;
     transition: 0.7s ease-in-out;
-    background-color: #e7c500;
+    background-color: var(--akcent2);
     padding: 10px;
     z-index: 100;
   }
+
   .search {
     position: absolute;
-    background-color: #e7c500;
+    background-color: var(--akcent2);
     width: 100%;
     top: 250px;
     z-index: 100;
@@ -259,47 +339,59 @@ a {
     left: -100%;
     transition: 0.7s ease-in-out;
   }
+
   .btn {
     width: 100px;
   }
+
   .navMenu.active {
     left: 0;
   }
+
   .search.active {
     left: 0;
   }
+
   .navMenu li {
     margin: 16px 0;
   }
+
   .map-container {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
+
   .placeView {
     width: 100%;
     height: auto;
   }
+
   .placeImg {
     width: 50px;
     height: auto;
   }
+
   .name_place {
     font-size: 2rem;
   }
+
   .info_rating {
     display: flex;
     flex-direction: column;
     font-size: 2rem;
   }
+
   .stars {
     display: flex;
     padding: 10px 15px;
     width: 100%;
   }
+
   .star {
     width: 100%;
   }
 }
+
 @media screen and (max-width: 780px) {
   .map {
     width: 100%;

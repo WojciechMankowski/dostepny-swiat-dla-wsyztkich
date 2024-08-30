@@ -7,7 +7,8 @@ import "../../assets/css/main.css";
 
 const App: React.FC<AppProps> = ({ data }) => {
   const [searchResults, setSearchResults] = useState<place[]>(data);
-
+  // console.log(typeof searchResults)
+  // console.log(searchResults)
   useEffect(() => {
     setSearchResults(data);
   }, [data]);
