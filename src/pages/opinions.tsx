@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 import { Rating } from "@smastrom/react-rating";
 import Place from "../components/features/place";
 import "@smastrom/react-rating/style.css";
-import place from "../types/place";
 import { update_ratings } from "../helps/add_value";
 import { add_comments } from "../helps/add_value";
-
+import { DataPlaces} from "../types/database_type";
 type AppProps = {
-  data: place[];
+  data: DataPlaces[];
   idPlace: number;
   setIdPlace: Function;
   setRating: Function;
@@ -25,7 +24,7 @@ const Opinions = (props: AppProps) => {
 
   const id = useParams<{ id: string }>();
   const data = props.data.find((place) => place.id.toString() === id.id);
-  const ratings = data?.rating[0];
+  const ratings = data?.rating;
 
   useEffect(() => {
     if (data) {
@@ -62,7 +61,7 @@ const Opinions = (props: AppProps) => {
       setCommentError("");
     }
 
-    const oldPlaceRating = data?.rating[0];
+    const oldPlaceRating = data.rating;
     console.log(oldPlaceRating);
     if (!oldPlaceRating) {
       console.error("Brak danych o miejscu");
